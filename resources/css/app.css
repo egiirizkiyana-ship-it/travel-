@@ -1,0 +1,186 @@
+@import 'tailwindcss';
+
+@import 'tw-animate-css';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+    --font-script: 'Dancing Script', cursive;
+    --font-poppins: 'Poppins', sans-serif;
+
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+
+    --color-brand-emerald: #1A7FA0;
+    --color-brand-dark: #145F78;
+    --color-brand-gold: #C8963E;
+    --color-brand-bg: #F0F7FA;
+    --color-brand-secondary: #E6F1F5;
+    --color-brand-foreground: #1A2B36;
+    --color-brand-muted: #6B7D87;
+}
+
+:root {
+    --background: #F0F7FA;
+    --foreground: #1A2B36;
+    --card: #FFFFFF;
+    --card-foreground: #1A2B36;
+    --popover: #FFFFFF;
+    --popover-foreground: #1A2B36;
+    --primary: #1A7FA0;
+    --primary-foreground: #FFFFFF;
+    --secondary: #E6F1F5;
+    --secondary-foreground: #1A2B36;
+    --muted: #E6F1F5;
+    --muted-foreground: #6B7D87;
+    --accent: #C8963E;
+    --accent-foreground: #FFFFFF;
+    --destructive: #DC2626;
+    --destructive-foreground: #FFFFFF;
+    --border: #C8DCE5;
+    --input: #C8DCE5;
+    --ring: #1A7FA0;
+    --chart-1: #1A7FA0;
+    --chart-2: #C8963E;
+    --chart-3: #145F78;
+    --chart-4: #6B7D87;
+    --chart-5: #E6F1F5;
+    --radius: 0.5rem;
+    --sidebar: #FFFFFF;
+    --sidebar-foreground: #1A2B36;
+    --sidebar-primary: #1A7FA0;
+    --sidebar-primary-foreground: #FFFFFF;
+    --sidebar-accent: #F0F7FA;
+    --sidebar-accent-foreground: #1A2B36;
+    --sidebar-border: #C8DCE5;
+    --sidebar-ring: #1A7FA0;
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-heading);
+    }
+}
+
+[data-page] {
+    animation: pageFadeIn 0.3s ease-out;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popUpAnim {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.pop-up-animate {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pop-up-animate {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.hero-gradient-animated {
+    background: linear-gradient(
+        135deg,
+        #0D4F6B,
+        #145F78,
+        #1A7FA0,
+        #2EC4D4,
+        #1A7FA0,
+        #145F78
+    );
+    background-size: 300% 300%;
+    animation: heroGradientShift 6s ease-in-out infinite;
+}
+
+@keyframes heroGradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
